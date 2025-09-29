@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-image: url('../images/welcome-background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+h1 {
+    font-size: 64px;
+    margin: 40px 0 60px;
+    letter-spacing: 8px;
+    text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.8);
+    animation: float 3s ease-in-out infinite;
+    text-align: center;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+.pergaminho {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../images/recortado.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 480px;
+    height: 450px;
+    filter: drop-shadow(8px 8px 12px rgba(0, 0, 0, 0.6));
+    animation: scrollAppear 1s ease-out;
+}
+
+@keyframes scrollAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.pergaminho div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.pergaminho p {
+    padding-top: 20px;
+    color: #3d2817;
+    font-size: 11px;
+    text-align: center;
+    line-height: 1.7;
+    width: 300px;
+}
+
+/* Botão Start */
+button {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 24px;
+    padding: 18px 60px 18px 80px;
+    background: transparent;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.1s ease;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+    animation: pulse 1s ease-in-out infinite;
+}
+
+button::before {
+    content: '▶';
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@keyframes pulse {
+    0%, 100% { 
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+    }
+    50% { 
+        opacity: 0.6;
+        transform: translateY(-50%) scale(1.1);
+    }
+}
+
+button:hover {
+    transform: scale(1.05);
+    text-shadow: 
+        2px 2px 0px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(255, 255, 255, 0.8),
+        0 0 30px rgba(255, 255, 255, 0.5);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 36px;
+        letter-spacing: 4px;
+        margin: 20px 0 40px;
+    }
+
+    .pergaminho {
+        width: 90%;
+        max-width: 400px;
+        height: auto;
+        min-height: 500px;
+        padding: 60px 40px;
+    }
+
+    .pergaminho p {
+        font-size: 11px;
+        line-height: 1.8;
+    }
+
+    button {
+        font-size: 18px;
+        padding: 15px 40px 15px 60px;
+        letter-spacing: 2px;
+    }
+
+    button::before {
+        left: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 28px;
+        letter-spacing: 2px;
+    }
+
+    .pergaminho {
+        padding: 50px 30px;
+        min-height: 450px;
+    }
+
+    .pergaminho p {
+        font-size: 10px;
+        line-height: 1.6;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 12px 30px 12px 50px;
+    }
+}
