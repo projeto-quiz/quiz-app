@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background: linear-gradient(to bottom, #1a1a1a 0%, #2d2d2d 50%, #0a0a0a 100%);
+    min-height: 100vh;
+    color: #d4a574;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito de névoa/fumaça no fundo */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(ellipse at 20% 30%, rgba(50, 50, 50, 0.3) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(40, 40, 40, 0.4) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(30, 30, 30, 0.2) 0%, transparent 60%);
+    animation: fogMove 15s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes fogMove {
+    0%, 100% { 
+        opacity: 0.6;
+        transform: scale(1) translateY(0);
+    }
+    50% { 
+        opacity: 0.8;
+        transform: scale(1.1) translateY(-20px);
+    }
+}
+
+/* Container principal */
+body > div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1000px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+/* Título */
+h1 {
+    font-size: 48px;
+    letter-spacing: 6px;
+    margin-bottom: 60px;
+    text-shadow: 
+        3px 3px 0px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(212, 165, 116, 0.5);
+    animation: titleGlow 2s ease-in-out infinite;
+    line-height: 1.4;
+}
+
+@keyframes titleGlow {
+    0%, 100% { 
+        text-shadow: 
+            3px 3px 0px rgba(0, 0, 0, 0.8),
+            0 0 20px rgba(212, 165, 116, 0.5);
+    }
+    50% { 
+        text-shadow: 
+            3px 3px 0px rgba(0, 0, 0, 0.8),
+            0 0 30px rgba(212, 165, 116, 0.8),
+            0 0 40px rgba(212, 165, 116, 0.4);
+    }
+}
+
+/* Container de conteúdo */
+body > div > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+}
+
+/* Imagem do personagem */
+img {
+    position: relative;
+    left: 120px;
+    width: 500px;
+    height: auto;
+    filter: drop-shadow(8px 8px 15px rgba(0, 0, 0, 0.9));
+    animation: characterFloat 4s ease-in-out infinite;
+}
+
+@keyframes characterFloat {
+    0%, 100% { 
+        transform: translateY(0px);
+    }
+    50% { 
+        transform: translateY(-15px);
+    }
+}
+
+/* Texto descritivo */
+p {
+    padding: 50px;
+    flex: 1;
+    font-size: 13px;
+    line-height: 3;
+    text-align: right;
+    color: #c9b896;
+    max-width: 500px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    letter-spacing: 0.5px;
+}
+
+/* Responsividade */
+@media (max-width: 968px) {
+    body > div > div {
+        flex-direction: column;
+        gap: 40px;
+        padding: 40px 30px;
+    }
+
+    h1 {
+        font-size: 36px;
+        letter-spacing: 4px;
+        margin-bottom: 40px;
+    }
+
+    img {
+        width: 220px;
+    }
+
+    p {
+        font-size: 12px;
+        line-height: 1.9;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 20px 15px;
+    }
+
+    h1 {
+        font-size: 28px;
+        letter-spacing: 2px;
+        margin-bottom: 30px;
+    }
+
+    body > div > div {
+        padding: 30px 20px;
+        gap: 30px;
+    }
+
+    img {
+        width: 180px;
+    }
+
+    p {
+        font-size: 10px;
+        line-height: 1.8;
+    }
+}
