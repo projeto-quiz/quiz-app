@@ -40,11 +40,11 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('../images/recortado.png');
+    background-image: url('../images/pergaminho.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
-    width: 480px;
+    width: 500px;
     height: 450px;
     filter: drop-shadow(8px 8px 12px rgba(0, 0, 0, 0.6));
     animation: scrollAppear 1s ease-out;
