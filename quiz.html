@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+</head>
+<body>
+    <div>
+        <header>
+            <span id="numeroPergunta"></span>
+            <h2 id="pergunta"></h2>
+        </header>
+
+        <div>
+            <div>
+                <ol>
+                    <li id="a" class="opcao" onclick="recebeResposta()"></li>
+                    <li id="b" class="opcao" onclick="recebeResposta()"></li>
+                    <li id="c" class="opcao" onclick="recebeResposta()"></li>
+                </ol>
+            </div>
+        </div>
+
+        <div>
+            <p>Pergunta <span id="perguntaAtual"></span> de <span id="totalPerguntas"></span></p>
+        </div>
+    </div>
+
+    <script src="assets/js/quiz.js"></script>
+</body>
+</html>

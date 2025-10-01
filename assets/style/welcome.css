@@ -40,12 +40,15 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    left: -10px;
+    padding-left: 30px;
     background-image: url('../images/pergaminho.png');
-    background-size: 100% 100%;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    width: 500px;
-    height: 450px;
+    width: 650px;
+    height: 550px;
     filter: drop-shadow(8px 8px 12px rgba(0, 0, 0, 0.6));
     animation: scrollAppear 1s ease-out;
 }
