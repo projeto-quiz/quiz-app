@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-image 0.5s ease-in-out;
+}
+
+/* Container principal */
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Header com pergunta */
+header {
+    background-image: url('../images/faixa.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 900px;
+    height: 300px;
+}
+
+header div {
+    text-align: center;
+    font-size: 14px;
+    width: 550px;
+    position: relative;
+    right: 40px;
+    color: #2a1810;
+    letter-spacing: 1px;
+    line-height: 1.8;
+}
+
+/* Container das opções */
+body > div > div:first-of-type {
+    width: 100%;
+    max-width: 800px;
+}
+
+ol {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+}
+
+/* Opções com imagem de botão */
+.opcao {
+    background-image: url('../images/opcao.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 30px 50px;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 13px;
+    color: #2a1810;
+    line-height: 1.7;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.6));
+}
+
+.opcao:hover {
+    transform: translateY(-3px);
+    filter: 
+        drop-shadow(8px 8px 12px rgba(0, 0, 0, 0.7))
+        brightness(1.1);
+}
+
+.opcao:active {
+    transform: translateY(0);
+    filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.6));
+}
+
+/* Contador de perguntas */
+body > div > div:last-of-type {
+    margin-top: 20px;
+}
+
+body > div > div:last-of-type p {
+    font-size: 14px;
+    color: #ffffff;
+    text-shadow: 
+        3px 3px 0px rgba(0, 0, 0, 0.8),
+        0 0 10px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+}
+
+#perguntaAtual,
+#totalPerguntas {
+    color: #ffd700;
+    text-shadow: 
+        2px 2px 0px rgba(0, 0, 0, 0.8),
+        0 0 15px rgba(255, 215, 0, 0.6);
+}

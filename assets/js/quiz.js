@@ -1,9 +1,10 @@
 class Personagem {
-    constructor(nome, imagem, descricao) {
+    constructor(nome, imagem, descricao, classe) {
         this.nome = nome;
         this.imagem = imagem;
         this.descricao = descricao;
         this.pontos = 0;
+        this.classe = classe;
     }
 }
 
@@ -19,15 +20,18 @@ class Pergunta {
 let personagens = [
     new Personagem("Brennus",
         "assets/images/cavaleiro.png",
-        "Conhecido como 'A Muralha de Aethelgard', Brennus é um guerreiro cuja lealdade ao reino é tão inabalável quanto sua armadura. Ele acredita que a força e a honra são o caminho para a verdadeira justiça, enfrentando qualquer perigo de frente para proteger os inocentes."),
+        "Conhecido como 'A Muralha de Aethelgard', Brennus é um guerreiro cuja lealdade ao reino é tão inabalável quanto sua armadura. Ele acredita que a força e a honra são o caminho para a verdadeira justiça, enfrentando qualquer perigo de frente para proteger os inocentes."
+        ,"Guerreiro"),
 
     new Personagem("Valerius",
         "assets/images/mago.png",
-        "Um estudioso dos segredos arcanos, Valerius passou décadas na biblioteca perdida de Cinderfall. Para ele, o verdadeiro poder não está na força bruta, mas no conhecimento e na capacidade de ver as conexões ocultas que moldam o universo. Cada feitiço é uma palavra em uma conversa com a própria magia."),
+        "Um estudioso dos segredos arcanos, Valerius passou décadas na biblioteca perdida de Cinderfall. Para ele, o verdadeiro poder não está na força bruta, mas no conhecimento e na capacidade de ver as conexões ocultas que moldam o universo. Cada feitiço é uma palavra em uma conversa com a própria magia."
+        ,"Mago"),
 
     new Personagem("Lirael",
         "assets/images/arqueiro.png",
-        "Lirael é uma sombra e um sussurro nas florestas de Aethelgard. Criada fora dos muros das grandes cidades, ela confia mais em seus instintos e na precisão de seu arco do que em planos grandiosos. Para Lirael, a liberdade é o bem mais precioso, e a melhor forma de resolver um problema é com uma flecha certeira, disparada do lugar certo e na hora certa."),
+        "Lirael é uma sombra e um sussurro nas florestas de Aethelgard. Criada fora dos muros das grandes cidades, ela confia mais em seus instintos e na precisão de seu arco do que em planos grandiosos. Para Lirael, a liberdade é o bem mais precioso, e a melhor forma de resolver um problema é com uma flecha certeira, disparada do lugar certo e na hora certa.", 
+        "Arqueiro"),
 ];
 
 let perguntas = [
@@ -99,22 +103,44 @@ const a = document.getElementById("a");
 const b = document.getElementById("b");
 const c = document.getElementById("c");
 const perguntaAtual = document.getElementById("perguntaAtual");
-let totalDePerguntas = perguntas.length;
-total.innerHTML = totalDePerguntas;
+const container = document.getElementById("container");
 
 let proximaPergunta = 0;
 
+mostrarPergunta(0);
+
 function mostrarPergunta(numero) {
+    
     if (numero < perguntas.length) {
-        numeroPergunta.innerHTML = perguntas[numero].numPergunta;
-        pergunta.innerHTML = perguntas[numero].pergunta;
-        a.innerHTML = perguntas[numero].opcoes[0].texto;
-        b.innerHTML = perguntas[numero].opcoes[1].texto;
-        c.innerHTML = perguntas[numero].opcoes[2].texto;
-        perguntaAtual.innerHTML = perguntas[numero].numPergunta;
-        total.innerHTML = perguntas.length;
-        document.body.style.backgroundImage = `url(${perguntas[numero].tema})`;
-    } else if (numero >= perguntas.length) {
+        const perguntaAtual = perguntas[numero];
+
+        document.body.style.backgroundImage = `url(${perguntaAtual.tema})`;
+
+        container.innerHTML = `
+            <header>
+                <div>
+                    <span id="numeroPergunta">${perguntaAtual.numPergunta}</span>
+                    <p id="pergunta">${perguntaAtual.pergunta}</p>
+                </div>
+            </header>
+            <div>
+                <ol>
+                    <li class="opcao" onclick="recebeResposta('0')">
+                        ${perguntaAtual.opcoes[0].texto}
+                    </li>
+                    <li class="opcao" onclick="recebeResposta('1')">
+                        ${perguntaAtual.opcoes[1].texto}
+                    </li>
+                    <li class="opcao" onclick="recebeResposta('2')">
+                        ${perguntaAtual.opcoes[2].texto}
+                    </li>
+                </ol>
+            </div>
+            <div>
+                <p>Pergunta <span id="perguntaAtual">${numero + 1}</span> de <span id="totalPerguntas">${perguntas.length}</span></p>
+            </div>
+        `;
+    } else {
         mostrarResultado();
     }
 }
@@ -133,50 +159,28 @@ function recebeResposta(opcaoIndex) {
  const nome = document.getElementById("nome");
  const classe = document.getElementById("classe");
  const descricao = document.getElementById("descricao");
- const container = document.getElementById("container");
- const personagema = personagens[0].pontos;
- const personagemb = personagens[1].pontos;
- const personagemc = personagens[2].pontos;
 
 function mostrarResultado() {
-    
-    let escolhido;
 
-    if (personagema > personagemb && personagema > personagemc) {
-      escolhido = personagem.a;
-        nome.innerText = personagem[0].nome
-        classe.innerText = personagem[0].classe
-        container.innerHTML = `
-        <img src = "assets/images/cavaleiro.png" alt = "Cavaleiro">
-        <p>${personagem[0].descricao}</p>
-        `;
-        pontos.innerText = personagem[0].pontos  
-    } else if (personagemb > personagema && personagemb > personagemc) {
-      escolhido = personagem.b;
-      nome.innerText = personagem[1].nome
-        classe.innerText = personagem[1].classe
-        container.innerHTML = `
-        <img src = "assets/images/mago.png" alt = "Mago">
-        <p>${personagem[1].descricao}</p>
-        `;
-        pontos.innerText = personagem[1].pontos  
-    } else {
-      escolhido = personagem.c;
-      nome.innerText = personagem[2].nome
-        classe.innerText = personagem[2].classe
-        container.innerHTML = `
-        <img src = "assets/images/arqueiro.png" alt = "Arqueiro">
-        <p>${personagem[2].descricao}</p>
-        `;
-        pontos.innerText = personagem[2].pontos  
+    let vencedor = personagens[0];
+    for (let i=1; i < personagens.length; i++){
+        if (personagens[i].pontos > vencedor.pontos) {
+            vencedor = personagens[i];
+        }
     }
-  }
+
+    container.innerHTML = `
+        <h1>Sua pontuação: ${vencedor.pontos}</h1>
+        <h2>Você é ${vencedor.nome}!</h2>
+        <h3>${vencedor.classe}</h3>
+        <img src="${vencedor.imagem}">
+        <p>${vencedor.descricao}</p>
+        <button onclick="resetar()">Jogar novamente</button>
+    `;
+
+    document.body.style.backgroundImage = "none";
+}
 
 function resetar(){
     window.location.href = 'welcome.html';
 }
-
-a.addEventListener("click", () => recebeResposta(0));
-b.addEventListener("click", () => recebeResposta(1));
-c.addEventListener("click", () => recebeResposta(2));
-
