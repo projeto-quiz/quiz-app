@@ -99,7 +99,6 @@ const a = document.getElementById("a");
 const b = document.getElementById("b");
 const c = document.getElementById("c");
 const perguntaAtual = document.getElementById("perguntaAtual");
-
 let totalDePerguntas = perguntas.length;
 total.innerHTML = totalDePerguntas;
 
@@ -134,6 +133,11 @@ function recebeResposta(opcaoIndex) {
 function mostrarResultado() {
 }
 
+function resetar(){
+    window.location.href = 'welcome.html';
+}
+
 a.addEventListener("click", () => recebeResposta(0));
 b.addEventListener("click", () => recebeResposta(1));
 c.addEventListener("click", () => recebeResposta(2));
+
