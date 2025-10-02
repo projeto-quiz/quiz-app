@@ -43,7 +43,6 @@ const a = document.getElementById("a");
 const b = document.getElementById("b");
 const c = document.getElementById("c");
 const perguntaAtual = document.getElementById("perguntaAtual");
-
 let totalDePerguntas = perguntas.length;
 total.innerHTML = totalDePerguntas;
 
@@ -74,6 +73,10 @@ function recebeResposta(opcao) {
 }
 
 function mostrarResultado() {}
+
+function resetar(){
+    window.location.href = 'welcome.html';
+}
 
 opcaoA.addEventListener("click", () => recebeResposta("A"));
 opcaoB.addEventListener("click", () => recebeResposta("B"));
