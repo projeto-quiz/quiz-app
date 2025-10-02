@@ -132,9 +132,6 @@ function recebeResposta(opcaoIndex) {
 }
 
 function mostrarResultado() {
-    const personagema = personagens[0].pontos;
-    const personagemb = personagens[0].pontos;
-    const personagemc = personagens[0].pontos;
 }
 
 a.addEventListener("click", () => recebeResposta(0));
