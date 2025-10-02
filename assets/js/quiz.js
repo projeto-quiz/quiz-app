@@ -130,8 +130,47 @@ function recebeResposta(opcaoIndex) {
     mostrarPergunta(proximaPergunta);
 }
 
+ const nome = document.getElementById("nome");
+ const classe = document.getElementById("classe");
+ const descricao = document.getElementById("descricao");
+ const container = document.getElementById("container");
+ const personagema = personagens[0].pontos;
+ const personagemb = personagens[1].pontos;
+ const personagemc = personagens[2].pontos;
+
 function mostrarResultado() {
-}
+    
+    let escolhido;
+
+    if (personagema > personagemb && personagema > personagemc) {
+      escolhido = personagem.a;
+        nome.innerText = personagem[0].nome
+        classe.innerText = personagem[0].classe
+        container.innerHTML = `
+        <img src = "assets/images/cavaleiro.png" alt = "Cavaleiro">
+        <p>${personagem[0].descricao}</p>
+        `;
+        pontos.innerText = personagem[0].pontos  
+    } else if (personagemb > personagema && personagemb > personagemc) {
+      escolhido = personagem.b;
+      nome.innerText = personagem[1].nome
+        classe.innerText = personagem[1].classe
+        container.innerHTML = `
+        <img src = "assets/images/mago.png" alt = "Mago">
+        <p>${personagem[1].descricao}</p>
+        `;
+        pontos.innerText = personagem[1].pontos  
+    } else {
+      escolhido = personagem.c;
+      nome.innerText = personagem[2].nome
+        classe.innerText = personagem[2].classe
+        container.innerHTML = `
+        <img src = "assets/images/arqueiro.png" alt = "Arqueiro">
+        <p>${personagem[2].descricao}</p>
+        `;
+        pontos.innerText = personagem[2].pontos  
+    }
+  }
 
 function resetar(){
     window.location.href = 'welcome.html';
