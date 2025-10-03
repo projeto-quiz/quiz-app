@@ -16,81 +16,89 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
     transition: background-image 0.5s ease-in-out;
 }
 
-/* Container principal */
 #container {
+    width: 100%;
+    max-width: 1100px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 50px;
 }
 
-/* Header com pergunta */
 header {
+    max-width: 900px;
     background-image: url('../images/faixa.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     width: 900px;
     height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(8px 8px 12px rgba(0, 0, 0, 0.7));
 }
 
 header div {
-    text-align: center;
-    font-size: 14px;
-    width: 550px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
     position: relative;
     right: 40px;
-    color: #2a1810;
-    letter-spacing: 1px;
-    line-height: 1.8;
 }
 
-/* Container das opções */
-body > div > div:first-of-type {
+header span {
+    font-size: 11px;
+    color: #2a1810;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+header p {
+    font-size: 14px;
+    color: #2a1810;
+    text-align: center;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+}
+
+body > div > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -100px;
     width: 100%;
     max-width: 800px;
 }
 
 ol {
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 0;
+    margin-bottom: 100px;
 }
 
-/* Opções com imagem de botão */
 .opcao {
     background-image: url('../images/opcao.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
-    padding: 30px 50px;
-    min-height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    font-size: 13px;
-    color: #2a1810;
-    line-height: 1.7;
-    cursor: pointer;
+    filter: drop-shadow(6px 6px 10px rgba(0, 0, 0, 0.6));
     transition: all 0.2s ease;
-    filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.6));
+    width: 700px;
+    height: 150px;
 }
 
 .opcao:hover {
     transform: translateY(-3px);
-    filter: 
-        drop-shadow(8px 8px 12px rgba(0, 0, 0, 0.7))
-        brightness(1.1);
+    filter: drop-shadow(8px 8px 14px rgba(0, 0, 0, 0.7));
 }
 
 .opcao:active {
@@ -98,24 +106,144 @@ ol {
     filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.6));
 }
 
-/* Contador de perguntas */
-body > div > div:last-of-type {
-    margin-top: 20px;
+.opcao button {
+    font-family: 'Press Start 2P', cursive;
+    background: transparent;
+    border: none;
+    color: #2a1810;
+    font-size: 12px;
+    line-height: 1.7;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    letter-spacing: 0.3px;
+    transition: color 0.2s ease;
 }
 
-body > div > div:last-of-type p {
-    font-size: 14px;
+.opcao:hover button {
+    color: #1a0f08;
+}
+
+.contador {
+    font-size: 13px;
     color: #ffffff;
     text-shadow: 
-        3px 3px 0px rgba(0, 0, 0, 0.8),
-        0 0 10px rgba(0, 0, 0, 0.5);
+        3px 3px 0px rgba(0, 0, 0, 0.9),
+        0 0 10px rgba(0, 0, 0, 0.6);
     letter-spacing: 1px;
 }
 
-#perguntaAtual,
-#totalPerguntas {
+.contador span {
     color: #ffd700;
     text-shadow: 
-        2px 2px 0px rgba(0, 0, 0, 0.8),
+        2px 2px 0px rgba(0, 0, 0, 0.9),
         0 0 15px rgba(255, 215, 0, 0.6);
+}
+
+/* -------------------------------------------------- */
+
+.resultado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.resultado span {
+    font-size: 16px;
+    color: #ffd700;
+    letter-spacing: 2px;
+    text-shadow: 
+        3px 3px 0px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(255, 215, 0, 0.6);
+}
+
+.resultado-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.resultado-header h2 {
+    font-size: 36px;
+    color: #b89968;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+}
+
+.resultado-header h3 {
+    font-size: 24px;
+    color: #d4a574;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+}
+
+.resultado-body {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.resultado-body img {
+    height: 400px;
+    animation: characterAppear 0.8s ease forwards, characterFloat 3s ease-in-out infinite;
+}
+
+@keyframes characterAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes characterFloat {
+    0%, 100% { 
+        transform: translateY(0px);
+    }
+    50% { 
+        transform: translateY(-15px);
+    }
+}
+
+.descricao {
+    font-size: 14px;
+    line-height: 2;
+    text-align: right;
+    color: #c9b896;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    letter-spacing: 0.5px;
+}
+
+.resultado-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.resultado-footer button{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    padding: 18px 40px;
+    background: transparent;
+    color: #d4a574;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+}
+
+.resultado-footer button:hover {
+    transform: translateY(-2px);
+}
+
+.resultado-footer button:active {
+    transform: translateY(2px);
 }
